@@ -1,0 +1,40 @@
+{
+  "todos": [
+    {
+      "task": "make the bed",
+      "id": 1,
+      "completed": true,
+      "favourites": false
+    },
+    {
+      "task": "do the dishes",
+      "id": 2,
+      "completed": true,
+      "favourites": false
+    },
+    {
+      "task": "take out the trash",
+      "id": 3,
+      "completed": true,
+      "favourites": true
+    },
+    {
+      "task": "read a book",
+      "id": 4,
+      "completed": true,
+      "favourites": false
+    },
+    {
+      "task": "write a report",
+      "id": 5,
+      "completed": false,
+      "favourites": true
+    },
+    {
+      "task": "walk the dog",
+      "id": 6,
+      "completed": false,
+      "favourites": true
+    }
+  ]
+}
