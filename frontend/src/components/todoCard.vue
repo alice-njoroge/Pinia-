@@ -20,9 +20,11 @@ const handleCheckboxChange = (todo) => {
         <input v-model="todo.isCompleted" @change="handleCheckboxChange(todo)" type="checkbox"
                class="w-5  h-5 inline-block mr-2 border border-gray-500 rounded"/>
       </label>
-      <div class="font-bold text-lg">
+      <div v-if="todo.isCompleted" class="font-bold text-lg">
         {{ todo.title }}
       </div>
+      <input v-else v-model="todo.title" @change="handleCheckboxChange(todo)"
+             class="font-bold text-lg leading-tight focus:outline-none focus:shadow-outline" type="text">
       <div>
         <svg v-if="todo.isFavourite" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
