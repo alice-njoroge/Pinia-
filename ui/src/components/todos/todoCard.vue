@@ -20,7 +20,7 @@ const updateFavourite = (todo) => {
 <template>
   <div class=" my-2 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
     <div class="flex items-center justify-between p-8 w-full" :class="{'line-through' : todo.isCompleted }">
-      <label class="flex items-center pl-4">
+      <label class="flex items-center">
         <input v-model="todo.isCompleted" @change="handleChange(todo)" type="checkbox"
                class="w-5  h-5 inline-block mr-2 border border-gray-500 rounded"/>
       </label>
