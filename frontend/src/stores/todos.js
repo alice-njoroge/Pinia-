@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {ofetch} from "ofetch";
+import {useApi} from "@/composables/useApi.js";
 
 export const useTodoStore = defineStore('todosStore',
     {
@@ -23,8 +24,9 @@ export const useTodoStore = defineStore('todosStore',
 
             async fetchTodos() {
                 this.setLoading(true);
+                const api = useApi();
                 try {
-                    const {todos} = await ofetch('../../api.json');
+                    const todos = await api('/todos');
                     this.setTodos(todos);
                     this.setLoading(false);
                 } catch (e) {
