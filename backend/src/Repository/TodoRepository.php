@@ -45,4 +45,12 @@ class TodoRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function save(Todo $todo)
+    {
+        $this->_em->persist($todo);
+        $this->_em->flush();
+
+    }
+
 }
