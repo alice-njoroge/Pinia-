@@ -6,8 +6,12 @@ const props = defineProps({
   todo: Object
 })
 
-const handleCheckboxChange = (todo) => {
+const handleChange = (todo) => {
   emit('change', todo)
+}
+const updateFavourite = (todo) => {
+  todo.isFavourite = !todo.isFavourite;
+  handleChange(todo);
 }
 
 
@@ -17,15 +21,15 @@ const handleCheckboxChange = (todo) => {
   <div class=" my-2 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
     <div class="flex items-center justify-between p-8 w-full" :class="{'line-through' : todo.isCompleted }">
       <label class="flex items-center pl-4">
-        <input v-model="todo.isCompleted" @change="handleCheckboxChange(todo)" type="checkbox"
+        <input v-model="todo.isCompleted" @change="handleChange(todo)" type="checkbox"
                class="w-5  h-5 inline-block mr-2 border border-gray-500 rounded"/>
       </label>
       <div v-if="todo.isCompleted" class="font-bold text-lg">
         {{ todo.title }}
       </div>
-      <input v-else v-model="todo.title" @change="handleCheckboxChange(todo)"
+      <input v-else v-model="todo.title" @change="handleChange(todo)"
              class="font-bold text-lg leading-tight focus:outline-none focus:shadow-outline" type="text">
-      <div>
+      <div @click="updateFavourite(todo)">
         <svg v-if="todo.isFavourite" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round"
