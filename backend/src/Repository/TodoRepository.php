@@ -7,7 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Todo>
+ * @extends ServiceEntityRepository<update>
  *
  * @method Todo|null find($id, $lockMode = null, $lockVersion = null)
  * @method Todo|null findOneBy(array $criteria, array $orderBy = null)
@@ -22,7 +22,7 @@ class TodoRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Todo[] Returns an array of Todo objects
+//     * @return update[] Returns an array of update objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class TodoRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Todo
+//    public function findOneBySomeField($value): ?update
 //    {
 //        return $this->createQueryBuilder('t')
 //            ->andWhere('t.exampleField = :val')
@@ -46,7 +46,7 @@ class TodoRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-    public function save(Todo $todo)
+    public function save(Todo $todo): void
     {
         $this->_em->persist($todo);
         $this->_em->flush();
