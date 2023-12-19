@@ -11,6 +11,14 @@ export const useTodoStore = defineStore('todosStore',
             isCompleted: false
 
         }),
+        getters: {
+            favourites() {
+                return this.todos.filter(todo => todo.isFavourite);
+            },
+            completed(){
+               return this.todos.filter(todo => todo.isCompleted);
+            }
+        },
         actions: {
             setTodos(todos) {
                 this.todos = todos;
